@@ -19,7 +19,7 @@ async function createPDFWithImages(imagePaths, outputPDFPath) {
 		}
 	
 		const { width, height } = embeddedImage.scale(1);
-
+		
 		const page = pdfDoc.addPage([width, height]);
 	
 		page.drawImage(embeddedImage, {
@@ -35,10 +35,10 @@ async function createPDFWithImages(imagePaths, outputPDFPath) {
 	fs.writeFileSync(outputPDFPath, pdfBytes);
 	console.log(`PDF created successfully at: ${outputPDFPath}`);
 }
-	
+
 const imagePaths = ['image1.jpg', 'image2.png', 'image3.jpg'];
 const outputPDFPath = 'planner.pdf';
-	
+
 createPDFWithImages(imagePaths, outputPDFPath)
 	.then(() => console.log('PDF generation complete'))
 	.catch((err) => console.error('Error generating PDF:', err));
