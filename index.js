@@ -68,4 +68,11 @@ async function mergePDFs(pdfPaths, outputPDFPath) {
 	console.log(`Merged PDF saved to: ${outputPDFPath}`);
 }
 
-// mergePDFs(pdfPaths, 'planner.pdf');
+async function savePDFsPathes() {
+	const files = fs.readdirSync('./a');
+	files.forEach(file => pdfPaths.push(`./a/${file}`));
+
+	mergePDFs(pdfPaths, outputPDFPath);
+}
+
+// savePDFsPathes();
